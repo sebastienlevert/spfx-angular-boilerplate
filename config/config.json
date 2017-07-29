@@ -6,7 +6,12 @@
       "outputPath": "./dist/basic-angular.bundle.js"
     }
   ],
-  "externals": {},
+  "externals": {
+    "zone.js": {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.12/zone.min.js",
+      "globalName": "zone.js"
+    }
+  },
   "localizedResources": {
     "basicAngularStrings": "webparts/basicAngular/loc/{locale}.js"
   }
