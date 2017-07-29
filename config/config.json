@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/basicAngular/BasicAngularWebPart.js",
+      "manifest": "./src/webparts/basicAngular/BasicAngularWebPart.manifest.json",
+      "outputPath": "./dist/basic-angular.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "basicAngularStrings": "webparts/basicAngular/loc/{locale}.js"
+  }
+}
