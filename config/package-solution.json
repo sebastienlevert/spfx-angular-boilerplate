@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "spfx-angular-boilerplate-client-side-solution",
+    "id": "024e1da9-a751-47d9-ad24-27b7eb686cd8",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-angular-boilerplate.sppkg"
+  }
+}

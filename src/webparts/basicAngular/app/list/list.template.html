@@ -1,0 +1,11 @@
+<div *ngIf="listName">
+  <h1>{{ listName }} Content</h1>
+  <ul>
+    <li *ngFor="let item of items">
+      ({{ item.Id }}) : {{ item.Title }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="!listName">
+  <div><i>Please configure your List Name using the WebPart Property Panel</i></div>
+</div>

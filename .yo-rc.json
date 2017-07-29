@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.1.1",
+    "libraryName": "spfx-angular-boilerplate",
+    "libraryId": "024e1da9-a751-47d9-ad24-27b7eb686cd8",
+    "environment": "spo"
+  }
+}
