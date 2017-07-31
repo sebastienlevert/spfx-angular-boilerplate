@@ -56,4 +56,4 @@ This Web Part illustrates the following concepts on top of the SharePoint Framew
 * Using multiple Angular webparts on the same page
 * The use of PnP JS Core with async/await support in TypeScript
 
-A blog series is available to go through all the details of this solution. Please see it here : [SharePoint Framework and Angular](https://www.sebastienlevert.com/2017/07/31/sharepoint-framework-and-angular-introducing-the-spfx-angular-boilerplate)
+A blog series is available to go through all the details of this solution. Please see it here : [SharePoint Framework and Angular](http://www.sebastienlevert.com/2017/07/31/sharepoint-framework-and-angular-introducing-the-spfx-angular-boilerplate)
