@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 export class AppComponent {
   public static getComponent(selectorId: string): any {
