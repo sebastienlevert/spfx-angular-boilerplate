@@ -5,6 +5,6 @@ export class AppComponent {
     return Component({
       selector: `angular-${selectorId}`,
       template: `<router-outlet></router-outlet>`
-    })(class HomeComponentComponentInner {});
+    })(class AppComponentInner {});
   }
 }
