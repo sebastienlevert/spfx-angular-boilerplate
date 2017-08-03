@@ -5,13 +5,22 @@
  */
 
 import "reflect-metadata";
-require('zone.js');
+
+if (DEBUG) {
+  require("zone.js");
+} else {
+  require("Zone");
+}
 
 import {
   BaseClientSideWebPart
 } from '@microsoft/sp-webpart-base';
-
-import { NgModule, ApplicationRef, NgZone } from '@angular/core';
+import { 
+  Version,
+  Environment,
+  EnvironmentType  
+} from '@microsoft/sp-core-library';
+import { NgModule, ApplicationRef, NgZone, enableProdMode } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -47,30 +56,22 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
   /**
    * Array of class references for the NgModule declarations.
    */
-  protected abstract get appDeclarationTypes(): any;/* {
-    throw new Error("This API needs to be overridden in the web part class");
-  }*/
+  protected abstract get appDeclarationTypes(): any;
   
   /**
    * Array of class references for the NgModule declarations.
    */
-  protected abstract get routes(): any;/* {
-    throw new Error("This API needs to be overridden in the web part class");
-  }*/
+  protected abstract get routes(): any;
   
   /**
    * Array of class references for the NgModule declarations.
    */
-  protected abstract get providers(): any; /*{
-    throw new Error("This API needs to be overridden in the web part class");
-  }*/
+  protected abstract get providers(): any;
 
   /**
    * Class reference of the root component.
    */
-  protected abstract get rootComponentType(): any;/* {
-    throw new Error("This API needs to be overridden in the web part class");
-  }*/
+  protected abstract get rootComponentType(): any;
 
   /**
    * On property change.
@@ -95,6 +96,10 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
    */
   private _bootStrapModule(): void {
     var self = this;
+    if(!DEBUG) {
+      enableProdMode();
+    }
+    
     platformBrowserDynamic().bootstrapModule(self._getModule()).then(
       ngModuleRef => {
 
