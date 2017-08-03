@@ -9,11 +9,12 @@ import {
 } from '@microsoft/sp-webpart-base';
 import { APP_INITIALIZER } from '@angular/core';
 import styles from './BasicAngular.module.scss';
-import BaseAngularWebPart from './../../core/BaseAngularWebPart';
+import BaseAngularWebPart from './../../core/webparts/BaseAngularWebPart';
 import { IBasicAngularWebPartProps } from './IBasicAngularWebPartProps';
 
 import { ConfigurationService, ItemsService, MockItemsService } from "./app/shared/services";
-import { AppComponent, AppRoutes } from './app';
+import { AppComponent } from './../../core/components/app.component';
+import { AppRoutes } from './app';
 import { HomeComponent } from './app/home';
 import { ListComponent } from './app/list';
 
