@@ -5,22 +5,14 @@
  */
 
 import "reflect-metadata";
-
-if (DEBUG) {
-  require("zone.js");
-} else {
-  require("Zone");
-}
+require("Zone");
 
 import {
   BaseClientSideWebPart
 } from '@microsoft/sp-webpart-base';
-import { 
-  Version,
-  Environment,
-  EnvironmentType  
-} from '@microsoft/sp-core-library';
-import { NgModule, ApplicationRef, NgZone, enableProdMode } from '@angular/core';
+
+import { AppComponent } from './../components/app.component';
+import { NgModule, ApplicationRef, NgZone, enableProdMode, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -30,7 +22,7 @@ import { HttpModule } from '@angular/http';
 /**
  * All Angular2 client side web parts should inherit from this class.
  */
-abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSideWebPart<TProperties> {
+export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebPart<TProperties> {
   /**
    * Reference to the root application.
    */
@@ -44,14 +36,7 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
   /**
    * Reference to the root component.
    */
-  private _component: KProperties;
-
-  /**
-   * The root Angular2 component for this web part.
-   */
-  protected get rootComponent(): KProperties {
-    return this._component;
-  }
+  private _component: AppComponent;
 
   /**
    * Array of class references for the NgModule declarations.
@@ -59,19 +44,19 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
   protected abstract get appDeclarationTypes(): any;
   
   /**
-   * Array of class references for the NgModule declarations.
+   * Array of class references for the NgModule imports.
    */
-  protected abstract get routes(): any;
+  protected abstract get importDeclarationTypes(): any;
   
   /**
    * Array of class references for the NgModule declarations.
    */
-  protected abstract get providers(): any;
-
+  protected abstract get routes(): ModuleWithProviders;
+  
   /**
-   * Class reference of the root component.
+   * Array of class references for the NgModule declarations.
    */
-  protected abstract get rootComponentType(): any;
+  protected abstract get providers(): any[];
 
   /**
    * On property change.
@@ -96,15 +81,12 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
    */
   private _bootStrapModule(): void {
     var self = this;
-    if(!DEBUG) {
-      enableProdMode();
-    }
     
     platformBrowserDynamic().bootstrapModule(self._getModule()).then(
       ngModuleRef => {
 
         if(self._app["_rootComponents"] != undefined && self._app["_rootComponents"].length > 0) {
-          self._component = self._app['_rootComponents'][0]['_component'] as KProperties;
+          self._component = self._app['_rootComponents'][0]['_component'] as AppComponent;
           self._zone.run(() => { console.log('Outside Done!'); });
         }
       }, err => {
@@ -117,8 +99,9 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
    * Get the NgModule reference that will act as the root of this web part.
    */
   private _getModule(): any {
-    const component: any = this.rootComponentType.getComponent(this.context.instanceId);
+    const component: any = AppComponent.getComponent(this.context.instanceId);
     const declarations = this.appDeclarationTypes.concat(component);
+    const imports = this.importDeclarationTypes;
     const routes = this.routes;
     const providers = this.providers;
     const webPart = this;
@@ -140,7 +123,7 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
       // We now attach required metadata for Angular2 that is allowable within a clousure
       const AppModule1 = Reflect.decorate([
         NgModule({
-          imports: [BrowserModule, FormsModule, HttpModule, routes],
+          imports: [BrowserModule, FormsModule, HttpModule, routes, imports],
           declarations: declarations,
           bootstrap: [component],
           exports: [RouterModule],
@@ -155,4 +138,4 @@ abstract class BaseAngularWebPart<TProperties, KProperties> extends BaseClientSi
   }
 }
 
-export default BaseAngularWebPart;
+//export default BaseAngularWebPart;

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "e09f5a95-aefd-4f1a-b724-9395a4124810",
+  "alias": "AngularMaterialWebPart",
+  "componentType": "WebPart",
+  "version": "*", // The "*" signifies that the version should be taken from the package.json
+  "manifestVersion": 2,
+
+  /**
+   * This property should only be set to true if it is certain that the webpart does not
+   *  allow arbitrary scripts to be called
+   */
+  "safeWithCustomScriptDisabled": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "e09f5a95-aefd-4f1a-b724-9395a4124810",
+    "group": { "default": "Under Development" },
+    "title": { "default": "AngularMaterial" },
+    "description": { "default": "AngularMaterial description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "AngularMaterial"
+    }
+  }]
+}
