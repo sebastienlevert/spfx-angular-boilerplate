@@ -11,18 +11,27 @@ import {
   APP_INITIALIZER,
   ModuleWithProviders 
 } from '@angular/core';
-import styles from './BasicAngular.module.scss';
+import styles from './AngularMaterial.module.scss';
 import { BaseAngularWebPart } from './../../core/webparts/base-angular.webpart';
-import { IBasicAngularWebPartProps } from './IBasicAngularWebPartProps';
+import { IAngularMaterialWebPartProps } from './IAngularMaterialWebPartProps';
+import { MaterialModule, MdTableModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CdkTableModule } from '@angular/cdk';
+
 
 import { ConfigurationService, ItemsService, MockItemsService } from "./app/shared/services";
-import { AppRoutes } from './app';
+import { AppRoutes } from './app/app.routes';
 import { HomeComponent } from './app/home';
 import { ListComponent } from './app/list';
 
-export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngularWebPartProps> {
-  
-  protected importDeclarationTypes: any = [];
+export default class AngularMaterialWebPart extends BaseAngularWebPart<IAngularMaterialWebPartProps> {
+  protected get importDeclarationTypes() : any[] {
+    return [
+      MaterialModule,
+      CdkTableModule,
+      BrowserAnimationsModule
+    ]
+  }
 
   protected get appDeclarationTypes(): any[] {
     return [
@@ -35,6 +44,7 @@ export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngula
     return AppRoutes;
   }
 
+  
   protected get providers(): any[] {
     if (Environment.type === EnvironmentType.Local) {
       return [
@@ -70,17 +80,17 @@ export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngula
       ];
     }    
   }
-
+  
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
 
-  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+ protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
         {
           header: {
-            description: "Angular Basic Webpart"
+            description: "Angular Material Webpart"
           },
           groups: [
             {
