@@ -12,7 +12,7 @@ import {
 } from '@microsoft/sp-webpart-base';
 
 import { AppComponent } from './../components/app.component';
-import { NgModule, ApplicationRef, NgZone, enableProdMode, ModuleWithProviders } from '@angular/core';
+import { NgModule, ApplicationRef, NgZone, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
