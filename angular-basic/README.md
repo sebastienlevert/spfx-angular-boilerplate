@@ -1,13 +1,13 @@
-# SharePoint Framework Angular Boilerplate
+# SharePoint Framework Angular Basic
 
 ## Summary
 Simplistic sample Web Part that demonstrates the use of Angular in creating a SharePoint Framework web part. The properties pane for this web part allows to configure the title and the List Name of a list to display the content from.
 
-![Screeshot of the Basic Angular web part in the Local Workbench](./assets/angular-boilerplate-local-workbench.gif)
+![Screeshot of the Angular Basic web part in the Local Workbench](./assets/spfx-angular-basic-local-workbench.gif)
 
 > The webpart uses mocked data when the sample is run from the Local Workbench.
 
-![Screeshot of the Basic Angular web part in the Hosted Workbench](./assets/angular-boilerplate-hosted-workbench.gif)
+![Screeshot of the Angular Basic web part in the Hosted Workbench](./assets/spfx-angular-basic-hosted-workbench.gif)
 
 > The webpart live data when the sample is run from the Hosted Workbench.
 
@@ -23,7 +23,7 @@ Simplistic sample Web Part that demonstrates the use of Angular in creating a Sh
 
 Solution|Author(s)
 --------|---------
-spfx-angular-boilerplate|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
+spfx-angular-basic|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
 
 
 ## Version history
@@ -31,6 +31,7 @@ spfx-angular-boilerplate|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert
 Version|Date|Comments
 -------|----|--------
 1.0|July 31, 2017|Initial release
+1.1|August 17, 2017|Renaming of the solution to support new folder structure
 
 
 ## Disclaimer
@@ -48,7 +49,7 @@ Version|Date|Comments
   - `Open the *workbench* on your Office 365 Developer tenant`
 
 ## Features
-The spfx-angular-boilerplate web part displays the content of the list specified in the web part properties pane.
+The spfx-angular-basic web part displays the content of the list specified in the web part properties pane.
 
 This Web Part illustrates the following concepts on top of the SharePoint Framework:
 

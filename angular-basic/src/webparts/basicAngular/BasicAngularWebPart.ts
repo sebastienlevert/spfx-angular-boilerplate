@@ -14,6 +14,7 @@ import {
 import styles from './BasicAngular.module.scss';
 import { BaseAngularWebPart } from './../../core/webparts/base-angular.webpart';
 import { IBasicAngularWebPartProps } from './IBasicAngularWebPartProps';
+import pnp from "sp-pnp-js";
 
 import { ConfigurationService, ItemsService, MockItemsService } from "./app/shared/services";
 import { AppRoutes } from './app';
@@ -69,6 +70,14 @@ export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngula
         }), deps: [ConfigurationService], multi: true }
       ];
     }    
+  }
+
+  public onInit(): Promise<void> {
+    return super.onInit().then(_ => {  
+      pnp.setup({
+        spfxContext: this.context
+      });      
+    });
   }
 
   protected get dataVersion(): Version {
