@@ -7,6 +7,25 @@
 import "reflect-metadata";
 require("Zone");
 
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/weak-map';
+
+// Check for native support of Map vs Polyfill
+if(Map.toString().indexOf('function Map()') === -1) { Map = undefined; }
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+import 'core-js/es6/reflect';
+
 import {
   BaseClientSideWebPart
 } from '@microsoft/sp-webpart-base';
@@ -42,17 +61,17 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
    * Array of class references for the NgModule declarations.
    */
   protected abstract get appDeclarationTypes(): any;
-  
+
   /**
    * Array of class references for the NgModule imports.
    */
   protected abstract get importDeclarationTypes(): any;
-  
+
   /**
    * Array of class references for the NgModule declarations.
    */
   protected abstract get routes(): ModuleWithProviders;
-  
+
   /**
    * Array of class references for the NgModule declarations.
    */
@@ -81,7 +100,7 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
    */
   private _bootStrapModule(): void {
     var self = this;
-    
+
     platformBrowserDynamic().bootstrapModule(self._getModule()).then(
       ngModuleRef => {
 
