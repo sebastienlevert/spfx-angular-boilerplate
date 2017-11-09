@@ -1,0 +1,31 @@
+<div class="ms-Grid">
+  <div class="ms-Grid-row">
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <progress-dialog
+        [(title)]="dialog.title"
+        [description]="dialog.description"
+        [(isOpen)]="dialog.isOpen"
+        (onDismiss)="dialogOnDismiss($event)"
+        (onClick)="dialogOnDismiss($event)"
+        (onCancel)="dialogOnDismiss($event)"></progress-dialog>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <span class="ms-font-su">Create a SharePoint Site</span>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <div #siteTitleElement></div>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <div #siteDescriptionElement></div>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <div #siteUrlElement></div>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <div #sitePrivateElement></div>
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+      <div #buttonSectionElement></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "55a41368-d402-4046-976f-aecf12457a05",
+  "alias": "AngularOfficeUiWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+  "preconfiguredEntries": [{
+    "groupId": "55a41368-d402-4046-976f-aecf12457a05",
+    "group": { "default": "SharePoint Framework Boilerplate" },
+    "title": { "default": " Angular Office UI" },
+    "description": { "default": "Angular Office UI Webpart using SharePoint Framework" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Angular Office UI Webpart using SharePoint Framework"
+    }
+  }]
+}

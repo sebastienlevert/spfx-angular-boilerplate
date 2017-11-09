@@ -1,84 +1,72 @@
-import { 
+import {
   Version,
   Environment,
-  EnvironmentType  
+  EnvironmentType
 } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
-import { 
+import {
   APP_INITIALIZER,
-  ModuleWithProviders 
+  ModuleWithProviders
 } from '@angular/core';
 
-import styles from './BasicAngular.module.scss';
+import styles from './AngularOfficeUi.module.scss';
 import { BaseAngularWebPart } from './../../core/webparts/base-angular.webpart';
-import { IBasicAngularWebPartProps } from './IBasicAngularWebPartProps';
-import pnp from "sp-pnp-js";
+import { IAngularOfficeUiWebPartProps } from './IAngularOfficeUiWebPartProps';
 
-import { ConfigurationService, ItemsService, MockItemsService } from "./app/shared/services";
-import { AppRoutes } from './app';
-import { HomeComponent } from './app/home';
-import { ListComponent } from './app/list';
+import { SitesComponent } from './app/components/sites/sites.component';
+import { SitesHomeComponent } from './app/components/sites/sites.home.component';
+import { SitesFormComponent } from './app/components/sites/sites.form.component';
+import { SitesViewComponent } from './app/components/sites/sites.view.component';
+import { DialogComponent } from './app/components/sites/dialog.component';
+import { AppRoutes } from "./app/app.routes";
+import { ConfigurationService, SitesService, MockSitesService } from "./app/shared/services";
 
-export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngularWebPartProps> {
-  
+export default class AngularOfficeUiWebPart extends BaseAngularWebPart<IAngularOfficeUiWebPartProps> {
+
   protected importDeclarationTypes: any = [];
 
-  protected get appDeclarationTypes(): any[] {
+  protected get appDeclarationTypes(): any {
     return [
-      HomeComponent,
-      ListComponent
-    ];
-  }
-  
-  protected get routes(): ModuleWithProviders {
-    return AppRoutes;
+      DialogComponent,
+      SitesComponent,
+      SitesHomeComponent,
+      SitesFormComponent,
+      SitesViewComponent];
   }
 
-  protected get providers(): any[] {
+  protected get providers(): any {
     if (Environment.type === EnvironmentType.Local) {
       return [
-        // Provides the Configuration Service
         ConfigurationService,
-
-        // Provides the ItemsService with its Mocked instance
-        { provide: ItemsService, useClass: MockItemsService },
-
-        // Initialized the ConfigurationService data based on the ClientWebPart configuration
+        { provide: SitesService, useClass: MockSitesService },
         { provide: APP_INITIALIZER, useFactory: (configurationService: ConfigurationService) => () => configurationService.load({
           mocked: true,
-          listName: this.properties.listName,
+          functionUrl: this.properties.functionUrl,
+          functionKey: this.properties.functionKey,
           description: this.properties.description,
           styles: styles
         }), deps: [ConfigurationService], multi: true }
       ];
     } else if (Environment.type == EnvironmentType.SharePoint || Environment.type == EnvironmentType.ClassicSharePoint) {
       return [
-        // Provides the Configuration Service
         ConfigurationService,
-
-        // Provides the ItemsService with its Real instance
-        { provide: ItemsService, useClass: ItemsService },
-
-        // Initialized the ConfigurationService data based on the ClientWebPart configuration
+        { provide: SitesService, useClass: SitesService },
         { provide: APP_INITIALIZER, useFactory: (configurationService: ConfigurationService) => () => configurationService.load({
           mocked: false,
-          listName: this.properties.listName,
+          functionUrl: this.properties.functionUrl,
+          functionKey: this.properties.functionKey,
           description: this.properties.description,
           styles: styles
         }), deps: [ConfigurationService], multi: true }
       ];
-    }    
+    }
   }
 
-  public onInit(): Promise<void> {
-    return super.onInit().then(_ => {  
-      pnp.setup({
-        spfxContext: this.context
-      });      
-    });
+  protected get routes(): ModuleWithProviders {
+    return AppRoutes;
   }
 
   protected get dataVersion(): Version {
@@ -90,22 +78,25 @@ export default class BasicAngularWebPart extends BaseAngularWebPart<IBasicAngula
       pages: [
         {
           header: {
-            description: "Angular Basic Webpart"
+            description: "Angular Webpart"
           },
           groups: [
             {
               groupName: "General Configuration",
               groupFields: [
                 PropertyPaneTextField('description', {
-                  label: "Title"
+                  label: "Home Title"
                 })
               ]
             },
             {
-              groupName: "List Configuration",
+              groupName: "API Configuration",
               groupFields: [
-                PropertyPaneTextField('listName', {
-                  label: "List Name"
+                PropertyPaneTextField('functionUrl', {
+                  label: "Function URL"
+                }),
+                PropertyPaneTextField('functionKey', {
+                  label: "Function Key"
                 })
               ]
             }
