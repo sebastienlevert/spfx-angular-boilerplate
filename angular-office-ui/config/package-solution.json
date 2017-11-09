@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "name": "angular-office-ui-client-side-solution",
+    "id": "ecb792f7-8072-4cca-ab33-e6101043cffc",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/angular-office-ui.sppkg"
+  }
+}

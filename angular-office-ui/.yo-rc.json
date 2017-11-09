@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.1.3",
+    "libraryName": "angular-office-ui",
+    "libraryId": "ecb792f7-8072-4cca-ab33-e6101043cffc",
+    "environment": "spo"
+  }
+}

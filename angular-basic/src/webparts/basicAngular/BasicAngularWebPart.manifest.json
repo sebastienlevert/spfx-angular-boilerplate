@@ -15,12 +15,12 @@
 
   "preconfiguredEntries": [{
     "groupId": "21e6e37b-9cb5-40d7-83d3-f09199970405",
-    "group": { "default": "Under Development" },
-    "title": { "default": "BasicAngular" },
-    "description": { "default": "Basic Angular WebPart leveraging the BaseAngularWebPart class" },
+    "group": { "default": "SharePoint Framework Boilerplate" },
+    "title": { "default": "Angular Basic" },
+    "description": { "default": "Basic Angular WebPart using SharePoint Framework" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "BasicAngular"
+      "description": "Basic Angular WebPart using SharePoint Framework"
     }
   }]
 }

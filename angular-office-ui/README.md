@@ -1,15 +1,15 @@
-# SharePoint Framework Angular Basic
+# SharePoint Framework Angular Office UI
 
 ## Summary
-Simplistic sample Web Part that demonstrates the use of Angular in creating a SharePoint Framework web part. The properties pane for this web part allows to configure the title and the List Name of a list to display the content from.
+Angular sample Web Part that demonstrates the use of Angular and the integration of the Office UI Fabric React Components. Further more, this sample uses an Azure Function as a way to elevate priviledges of the currently logged in user to execute specific task (in that case, a Site Provisioning process).
 
 ![Screeshot of the Angular Basic web part in the Local Workbench](./assets/spfx-angular-basic-local-workbench.gif)
 
-> The webpart uses mocked data when the sample is run from the Local Workbench.
+> The webpart uses mocked service when the sample is run from the Local Workbench.
 
 ![Screeshot of the Angular Basic web part in the Hosted Workbench](./assets/spfx-angular-basic-hosted-workbench.gif)
 
-> The webpart uses live data when the sample is run from the Hosted Workbench.
+> The webpart uses the live servive (Azure Function) when the sample is run from the Hosted Workbench or any page in SharePoint Online.
 
 ## Used SharePoint Framework Version 
 ![drop](https://img.shields.io/badge/drop-ga-green.svg)
@@ -23,15 +23,14 @@ Simplistic sample Web Part that demonstrates the use of Angular in creating a Sh
 
 Solution|Author(s)
 --------|---------
-spfx-angular-basic|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
+spfx-angular-office-ui|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
 
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
-1.0|July 31, 2017|Initial release
-1.1|August 17, 2017|Renaming of the solution to support new folder structure
+1.0|August 21, 2017|Initial release
 
 
 ## Disclaimer
@@ -42,19 +41,28 @@ Version|Date|Comments
 ## Minimal Path to Awesome
 
 - Clone this repository
-- in the command line run:
+- Create an Azure AD Application that is scoped to create new Modern Groups in Office 365
+- Create an Azure Function that will invoque the created Azure AD to create new Modern Groups in Office 365
+- In the command line run:
   - `npm install`
   - `gulp serve`
   - `Open the *workbench* from your Localhost`
   - `Open the *workbench* on your Office 365 Developer tenant`
 
+## Create the Azure AD Application
+
+## Create the Azure Function
+
 ## Features
-The spfx-angular-basic web part displays the content of the list specified in the web part properties pane.
+The spfx-angular-office-ui web part creates a Modern Group (and all its components, including a SharePoint Modern Team Site) using an Azure Function based on the data provided in the New Site Form..
 
 This Web Part illustrates the following concepts on top of the SharePoint Framework:
 
 * Using Angular as the UI Framework
 * Using multiple Angular webparts on the same page
-* The use of PnP JS Core with async/await support in TypeScript
+* Using Angular Router to navigate between states of the WebPart
+* Using the Office UI Fabric React Components to deliver high quality and interactive user interfaces in Angular
+* Using the Microsoft Graph to create content in Office 365
+* Using an Azure Function to execute actions that are not necessary available to users using an elevated privileges approach.
 
 A blog series is available to go through all the details of this solution. Please see it here : [SharePoint Framework and Angular](http://www.sebastienlevert.com/2017/07/31/sharepoint-framework-and-angular-introducing-the-spfx-angular-boilerplate)
