@@ -134,7 +134,7 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
       class in a closure to create a new environment for each instance class, so that each annotation
       object will be parsed.
     */
-    const AppModule = (() => {
+    const angularModule = (() => {
       function AppModule(applicationRef, ngZone) {
         webPart._app = applicationRef; // applicationRef gives us a reference to the Angular2 component's properties
         webPart._zone = ngZone;
@@ -153,8 +153,6 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
       ], AppModule);
       return AppModule1;
     })();
-    return AppModule;
+    return angularModule;
   }
 }
-
-//export default BaseAngularWebPart;
