@@ -7,7 +7,7 @@ import { ConfigurationService } from "./../../shared/services";
 })
 export class SitesHomeComponent {
   private title: string = "";
-  constructor(@Inject(ConfigurationService) private configurationService: ConfigurationService) {
+  constructor(private configurationService: ConfigurationService) {
     this.title = configurationService.description;
   }
 }

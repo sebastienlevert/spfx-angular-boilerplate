@@ -13,7 +13,7 @@ export class SitesViewComponent {
 
   private site: any = null;
 
-  constructor(@Inject(ActivatedRoute) private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.site = JSON.parse(params["data"]);
     });

@@ -10,7 +10,7 @@ import { ISiteCreationInformation, ISiteCreationResponse } from "./../models";
 
 @Injectable()
 export class SitesService extends DataService implements ISitesService {
-  constructor(@Inject(Http) private http: Http, @Inject(ConfigurationService) private configurationService: ConfigurationService) {
+  constructor(private http: Http, private configurationService: ConfigurationService) {
     super();
   }
 
