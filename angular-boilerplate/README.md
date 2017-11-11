@@ -15,7 +15,7 @@ Placeholder SPFx Project allowing simple copy to use to start any SPFx project w
 
 Solution|Author(s)
 --------|---------
-spfx-angular-basic|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
+spfx-angular-boilerplate|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
 
 
 ## Version history
