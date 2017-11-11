@@ -14,6 +14,7 @@ spfx-angular-boilerplate|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert
 Sample|Author(s)
 --------|---------
 [angular-basic](https://github.com/sebastienlevert/spfx-angular-boilerplate/tree/master/angular-basic)|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
+[angular-boilerplate](https://github.com/sebastienlevert/spfx-angular-boilerplate/tree/master/angular-boilerplate)|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
 [angular-office-ui](https://github.com/sebastienlevert/spfx-angular-boilerplate/tree/master/angular-office-ui)|Sébastien Levert (MVP, Valo Intranet, @sebastienlevert)
 
 ## Version history
@@ -23,6 +24,7 @@ Version|Date|Comments
 1.0|July 31, 2017|Initial release
 1.1|August 17, 2017|Renaming of the solution to support new folder structure
 1.2|August 21, 2017|Adding the spfx-angular-office-ui solution
+1.3|November 11, 2017|Adding the spfx-angular-boilerplate solution
 
 ## Disclaimer
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
