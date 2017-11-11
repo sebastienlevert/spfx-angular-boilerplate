@@ -30,7 +30,7 @@ export class SitesComponent extends BaseNavigatingComponent implements OnInit {
     }
   ];
 
-  constructor(@Inject(NgZone) protected zone: NgZone, @Inject(Router) protected router: Router, @Inject(ConfigurationService) private configurationService: ConfigurationService) {
+  constructor(protected zone: NgZone, protected router: Router, private configurationService: ConfigurationService) {
     super(zone, router);
   }
 

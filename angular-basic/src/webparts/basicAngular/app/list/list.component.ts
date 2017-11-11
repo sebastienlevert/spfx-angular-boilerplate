@@ -11,10 +11,10 @@ export class ListComponent implements OnInit {
   private listName: string = "";
   private items: ItemModel[] = [];
 
-  constructor(@Inject(ConfigurationService) private configurationService: ConfigurationService, @Inject(ItemsService) private itemsService: ItemsService) {
+  constructor(private configurationService: ConfigurationService, private itemsService: ItemsService) {
     this.listName = configurationService.listName;
   }
-  
+
   public ngOnInit() {
     this.itemsService.getItems(this.configurationService.listName).then((items: ItemModel[]) => {
       this.items = items;

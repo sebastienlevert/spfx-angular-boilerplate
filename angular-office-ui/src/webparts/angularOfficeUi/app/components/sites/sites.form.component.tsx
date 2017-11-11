@@ -38,7 +38,7 @@ export class SitesFormComponent extends BaseNavigatingComponent implements OnIni
 
   public errorMessage = "";
 
-  constructor(@Inject(NgZone) protected zone: NgZone, @Inject(Router) protected router: Router, @Inject(SitesService) private sitesService: SitesService) {
+  constructor(protected zone: NgZone, protected router: Router, private sitesService: SitesService) {
     super(zone, router);
   }
 
