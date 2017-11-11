@@ -1,15 +1,23 @@
 {
-  "entries": [
-    {
-      "entry": "./lib/webparts/basicAngular/BasicAngularWebPart.js",
-      "manifest": "./src/webparts/basicAngular/BasicAngularWebPart.manifest.json",
-      "outputPath": "./dist/basic-angular.bundle.js"
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "basic-angular-bundle": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/basicAngular/BasicAngularWebPart.js",
+          "manifest": "./src/webparts/basicAngular/BasicAngularWebPart.manifest.json"
+        },
+        {
+          "entrypoint": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
+          "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
+        }
+      ]
     }
-  ],
-  "externals": {
-    "Zone": "https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.12/zone.min.js"
   },
   "localizedResources": {
-    "basicAngularStrings": "webparts/basicAngular/loc/{locale}.js"
-  }
+    "basicAngularStrings": "lib/webparts/basicAngular/loc/{locale}.js",
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js"
+  },
+  "externals": { }
 }

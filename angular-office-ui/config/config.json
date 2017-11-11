@@ -6,9 +6,7 @@
       "outputPath": "./dist/angular-office-ui.bundle.js"
     }
   ],
-  "externals": {
-    "Zone": "https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.12/zone.min.js"
-  },
+  "externals": { },
   "localizedResources": {
     "angularOfficeUiStrings": "webparts/angularOfficeUi/loc/{locale}.js"
   }
