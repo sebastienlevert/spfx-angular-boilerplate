@@ -5,7 +5,18 @@
  */
 
 import "reflect-metadata";
-require("Zone");
+
+/**
+ * Declaring the Zone polyfill
+ */
+declare var Zone: any;
+
+/**
+ * If Zone is not loaded, load it
+ */
+if (typeof Zone == 'undefined') {
+  require("zone.js");
+}
 
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
@@ -82,7 +93,7 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
    */
   public onPropertyChange(propertyPath: string, newValue: any): void {
     // Trigger app/root-component refresh
-    this._zone.run(() => { console.log('Outside Done!'); });
+    this._zone.run(() => { });
   }
 
   /**
@@ -106,7 +117,7 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
 
         if(self._app["_rootComponents"] != undefined && self._app["_rootComponents"].length > 0) {
           self._component = self._app['_rootComponents'][0]['_component'] as AppComponent;
-          self._zone.run(() => { console.log('Outside Done!'); });
+          self._zone.run(() => { });
         }
       }, err => {
         console.log(err);
@@ -134,7 +145,7 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
       class in a closure to create a new environment for each instance class, so that each annotation
       object will be parsed.
     */
-    const AppModule = (() => {
+    const angularModule = (() => {
       function AppModule(applicationRef, ngZone) {
         webPart._app = applicationRef; // applicationRef gives us a reference to the Angular2 component's properties
         webPart._zone = ngZone;
@@ -153,8 +164,6 @@ export abstract class BaseAngularWebPart<TProperties> extends BaseClientSideWebP
       ], AppModule);
       return AppModule1;
     })();
-    return AppModule;
+    return angularModule;
   }
 }
-
-//export default BaseAngularWebPart;

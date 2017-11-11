@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import pnp, { ODataEntityArray } from "sp-pnp-js";
+import pnp from "sp-pnp-js";
 import { IItemsService } from "./../services/interfaces/items.service";
 import { ItemModel } from "./../models";
 

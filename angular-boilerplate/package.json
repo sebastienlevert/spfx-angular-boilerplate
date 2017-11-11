@@ -1,9 +1,14 @@
 {
-  "name": "spfx-angular-basic",
+  "name": "{SolutionName}",
   "version": "0.0.1",
   "private": true,
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "build": "gulp bundle",
+    "clean": "gulp clean",
+    "test": "gulp test"
   },
   "dependencies": {
     "@angular/common": "^5.0.1",
@@ -16,15 +21,14 @@
     "@angular/router": "^5.0.1",
     "@microsoft/sp-core-library": "~1.3.4",
     "@microsoft/sp-webpart-base": "~1.3.4",
+    "@microsoft/sp-lodash-subset": "~1.3.4",
+    "@microsoft/sp-office-ui-fabric-core": "~1.3.4",
     "@types/webpack-env": ">=1.12.1 <1.14.0",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.9",
     "rxjs": "5.5.2",
-    "sp-pnp-js": "^3.0.1",
     "systemjs": "0.20.19",
-    "zone.js": "0.8.18",
-    "@microsoft/sp-lodash-subset": "~1.3.4",
-    "@microsoft/sp-office-ui-fabric-core": "~1.3.4"
+    "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.3.4",
@@ -34,10 +38,5 @@
     "@types/chai": ">=3.4.34 <3.6.0",
     "@types/mocha": ">=2.2.33 <2.6.0",
     "ajv": "~5.2.2"
-  },
-  "scripts": {
-    "build": "gulp bundle",
-    "clean": "gulp clean",
-    "test": "gulp test"
   }
 }
